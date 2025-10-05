@@ -3,8 +3,6 @@
 
 using namespace std;
 
-
-
 int main1(int val, MOT& tree) 
 {
     int n, value;
@@ -42,7 +40,8 @@ int main1(int val, MOT& tree)
 }
 
 
-void printMenu() {
+void printMenu() 
+{
     cout << "\n====== BINARY TREE MENU ======\n";
     cout << "1. Insert (Unbalanced)\n";
     cout << "2. Insert (Balanced)\n";
