@@ -1,9 +1,9 @@
 
 ---
 
-#  Binary Search Tree (BST) - Middle Order Tree
+#  Adelson-Velsky and Landis Tree (AVL) - Middle Order Tree
 
-This project implements a **Binary Search Tree (BST)** in C++ with support for both **unbalanced** and **balanced (AVL-style)** insertions. It includes full functionality to insert, delete, search, traverse, rotate, and compare trees.
+This project implements a **AVL** in C++ with support for both **unbalanced (BST-style)** and **balanced (AVL-style)** insertions. It includes full functionality to insert, delete, search, traverse, rotate, compare trees, save to file and load from file.
 
 ---
 
@@ -28,6 +28,8 @@ This project implements a **Binary Search Tree (BST)** in C++ with support for b
 * Delete node
 * Search node
 * Find in-order successor and predecessor
+* Save tree
+* Load tree
 
 ###  Tree Traversals & Views
 
@@ -49,6 +51,10 @@ This project implements a **Binary Search Tree (BST)** in C++ with support for b
   * Same height
   * Same node count
   * Exact structure and data match
+
+ ### Save & Load
+  * save the tree in preorder
+  * Load the same balanced tree
 
 ---
 
