@@ -54,6 +54,8 @@ void printMenu()
     cout << "9. Print Tree (In-Order)\n";
     cout << "10. Tree Stats (Height + Node Count)\n";
     cout << "11. Compare With Another Tree (Structure and Data)\n";
+    cout << "12. Save Tree to File\n";
+    cout << "13. Load Tree from File (Balanced Insertion)\n";
     cout << "0. Exit\n";
     cout << "Enter your choice: ";
 }
@@ -62,7 +64,9 @@ int main()
 {
     MOT tree1, tree2;
     int choice, value;
-
+    string filename1 = "tree1.txt";
+    string filename2 = "tree2.txt";
+    
     while (true) 
     {
         printMenu();
@@ -169,6 +173,46 @@ int main()
                     cout << "❌ Trees differ in number of nodes.\n";
                 break;
 
+            case 12:
+                if (!tree1.isEmpty())
+                    tree1.write_to_file(filename1);
+                else
+                    cout << "Tree 1 is empty. Nothing to save.\n";
+
+                if (!tree2.isEmpty())
+                    tree2.write_to_file(filename2);
+                else
+                    cout << "Tree 2 is empty. Nothing to save.\n";
+                break;
+
+            case 13:
+                tree1.read_from_file(filename1);
+                cout << "Tree 1 loaded from file and built using balanced insertion.\n";
+                cout << "\n========= In-Order Traversal =========\n";
+                tree1.printInOrder();
+                cout << "\n========= Tree View (Sideways) =========\n";
+                tree1.printTree();
+                cout << "\n========= Level-Order (Top Down) =========\n";
+                tree1.printTreeTopDown();
+                cout << "\n========= Tree Stats =========\n";
+                tree1.printStats();
+                cout << "Depth (recursive): " << tree1.countDepth() << endl;
+                cout << "Layer Count (level-order method): " << tree1.countLayer() << endl;
+
+                tree2.read_from_file(filename2);
+                cout << "Tree 2 loaded from file and built using balanced insertion.\n";
+                cout << "\n========= In-Order Traversal =========\n";
+                tree2.printInOrder();
+                cout << "\n========= Tree View (Sideways) =========\n";
+                tree2.printTree();
+                cout << "\n========= Level-Order (Top Down) =========\n";
+                tree2.printTreeTopDown();
+                cout << "\n========= Tree Stats =========\n";
+                tree2.printStats();
+                cout << "Depth (recursive): " << tree2.countDepth() << endl;
+                cout << "Layer Count (level-order method): " << tree2.countLayer() << endl;
+
+                break;
             case 0:
                 cout << "Exiting program. Goodbye!\n";
                 return 0;

@@ -138,6 +138,36 @@ MOT::Node* MOT::minValueNode(Node* node)
     return current;
 }
 
+MOT::Node* MOT::write_to_file(Node* node, ofstream& file)
+{
+    if (!node) 
+    {
+        file << "# "; // Using '#' to denote null
+        return nullptr;
+    }
+
+    file << node->data << " ";
+    write_to_file(node->left, file);
+    write_to_file(node->right, file);
+    return node;
+}
+
+MOT::Node* MOT::read_from_file(Node* node, ifstream& file)
+{
+    string val;
+    deleteTree(root); 
+    root = nullptr;
+    while (file >> val) 
+    {
+        if (val == "#")
+            continue;  // skiping null markers
+        
+        int intVal = stoi(val);
+        insertBalanced(intVal); // insert each value into the balanced tree
+    }
+    return root; // return the root of the balanced tree
+}
+
 // --------- Rotations ---------
 
 MOT::Node* MOT::rotateLeft(Node* node) 
@@ -246,6 +276,32 @@ void MOT::deleteTree(Node *node)
     deleteTree(node->left);
     deleteTree(node->right);
     delete node;
+}
+
+void MOT::write_to_file(const string &filename)
+{
+    ofstream file(filename);
+    if (!file) 
+    {
+        cerr << "Error opening file for writing: " << filename << endl;
+        return;
+    }
+    write_to_file(root, file);
+    file.close();
+    cout << "Tree written to " << filename << endl;
+}
+
+void MOT::read_from_file(const string &filename)
+{
+    ifstream file(filename);
+    if (!file) 
+    {
+        cerr << "Error opening file for reading: " << filename << endl;
+        return;
+    }
+    root = read_from_file(root, file);
+    file.close();
+    cout << "Tree read from " << filename << endl;
 }
 
 void MOT::printStats() 

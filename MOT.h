@@ -2,6 +2,8 @@
 #define MOT_H
 
 #include <iostream>
+#include <fstream>
+#include <string>
 #include <queue>
 using namespace std;
 
@@ -32,6 +34,8 @@ private:
     bool isBalanced(Node* node);
     int countDepthHelper(Node* node) ;
 
+    Node* write_to_file(Node* node, ofstream& file);
+    Node* read_from_file(Node* node, ifstream& file);
     Node* deleteElement(Node* node, int val);
     Node* findSuccessor(Node* node, int val);
     Node* findPredecessor(Node* node, int val);
@@ -66,12 +70,16 @@ public:
     void printInOrder();
     void printTreeTopDown();
     void deleteTree(Node* node);
-
+    void write_to_file(const string& filename);
+    void read_from_file(const string& filename);
 
     bool isEqual(MOT& other);
     bool sameHeight(MOT& other);
     bool sameNodeCount(MOT& other);
     
-   
+   operator bool() const { return root != nullptr; }
+   bool isEmpty() const { return root == nullptr; }
+
+
 };
 #endif
