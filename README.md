@@ -87,6 +87,8 @@ g++ main.cpp MOT.cpp -o main
 9. Print Tree (In-Order)
 10. Tree Stats (Height + Node Count)
 11. Compare With Another Tree (Structure and Data)
+12. Save to file
+13. Load from file
 0. Exit
 ```
 
@@ -139,7 +141,7 @@ Layer Count (level-order method): 4
 * Binary Search Tree (BST)
 * AVL Tree Rotation (LL, RR, LR, RL)
 * Recursion
-* Tree Traversals (DFS and BFS)
+* Tree Traversals (DFS and BFS)Binary Search Tree (BST)Binary Search Tree (BST)
 * Tree Height, Depth, Layer Calculation
 * Tree Comparison
 
